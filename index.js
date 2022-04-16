@@ -1,6 +1,6 @@
 class GuessingTrivia {
     constructor (element, options={}){
-        this.useCategoryIds = topns.useCategoryIds || [];
+        this.useCategoryIds = options.useCategoryIds || [];
 
 
         //categories 
@@ -47,15 +47,55 @@ class GuessingTrivia {
 
     }
     this.fetchCategories();
-}
 
 
+    
 
 
 // buttons for each category
 
-// form to type in answer
+// Form
+this.formElement = element.querySelector(".form");
+this.gameBoardElement = element.querySelector(".game-board");
+this.scoreCountElement = element.querySelector(".score-count");
+this.resultElement = element.querySelector(".results");
+this.resultTextElement = element.querySelector(".result_correct-answer-text");
+this.successTextElement = element.querySelector(".result_success");
+this.failTextElement = element.querySelector(".result_fail");
 
+}};
+
+
+
+
+// event listeners
+this.gameBoardElement.addEventListener("click", event => {
+    if (event.target.dataset.clueId) {
+       this.handleClueClick(event);
+    }
+ });
+ this.formElement.addEventListener("submit", event => {
+    this.handleFormSubmit(event);
+ });
+ 
+ //Render initial state of score
+ this.updateScore(0);
+ 
+ //Kick off the category fetch
+ this.fetchCategories();
+
+
+//Fetch all of the data from the API
+fetchCategories() {      
+ const categories = this.useCategoryIds.map(category_id => {
+    return new Promise((resolve, reject) => {
+        fetch(`https://jservice.io/api/category?id=${category_id}`)
+               .then(response => response.json()).then(data => {
+                  resolve(data);
+               });
+         });
+      })};
+      
 
 
 // submit button
