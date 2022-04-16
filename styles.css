@@ -1,0 +1,134 @@
+/**{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+
+}
+
+body{
+    font-family: 'Montserrat', serif;
+    text-align: center;
+    padding: 1em;
+    background-color: #2a3698;
+    height: 100%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
+
+
+}
+.game-board {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: linear-gradient(to top, #1d2675 0%,#2a3698 100%);
+    position: relative;
+    transition: .1s;
+    z-index: 1;
+    transform-origin: center left;
+    font-size: 12px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.top-heading{
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+align-items: start;
+
+}
+
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background: url('../assets/background_image.jpg');
+    background-color : black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-container{
+    width: 40rem;
+    height: 30rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: var(--text-shadow);
+ }
+*/
+
+html, body {
+    overflow:hidden;
+}
+
+body {
+	background-color:#2a3698;	
+	height:100%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    overflow-y:hidden;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+input, textarea, select {
+	display:block;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	margin:auto;
+}
+
+.hide {
+    display:none;
+}
+
+.modal-wrapper {
+    background-color:rgba(0,0,0,.5);
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:2;
+    height:100%; /* stupid safari */
+}
+
+.modal {
+    position:relative;
+    top:50%;
+    /*left:50%;*/
+    /*right:5%;*/
+    transform:translate(0%, -50%);
+    background-color:#ffffff;
+    z-index:2;
+    border-radius:5px;
+    background-color:#efefef;
+    overflow:auto;
+    max-height:calc(100% - 50px);
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.container {
+    
+}

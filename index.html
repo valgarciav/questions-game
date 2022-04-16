@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milestone Project 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- top header area for categories-->
+      <header class="top-heading">
+        <h1>Just Guessing Trivia</h1>
+        <p class="score">Score <span class="score-count"> </span></p>
+      </header>
+
+
+      <!-- container with questions table-->
+      <div class="game-board"><!--grid board-->
+        <!--categories-->
+      </div>
+
+      <!-- answers container -->
+      <div class="flash-card">
+        <!--card modal-->
+        <div class="flash-card-question">
+          <h2 class="clue text"><!--gives some sort of clue --></h2>
+
+          <!-- form goes here for user to add answer and submit-->
+          <form autocomplete="off">
+            <input name="users-answer" type="text" />
+            <button type="submit">Answer</button>
+          </form>
+
+          <!-- container with results -->
+          <div class="results">
+            <p class="result-correct">CORRECT</p>
+            <p class="result=wrong">WRONG</p>
+            <p class="result-correct-answer">
+              The right answer is
+              <span class="result-correct-answer-text">
+                <!-- right answer shows up below the answer user guessed --></span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
