@@ -46,8 +46,10 @@ class GuessingTrivia {
         }
 
     }
+    this.fetchCategories();
 }
-this.fetchCategories();
+
+
 
 
 // buttons for each category
