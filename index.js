@@ -4,10 +4,10 @@ class GuessingTrivia {
 
 
         //categories 
-        this.useCategoryIds = options.useCategoryIds [255,215,190,135,145]
+        this.useCategoryIds = options.useCategoryIds [255,190,135,145,130]
 
         // 3 letter words 255
-        //food 215
+        //movies 130
         //food and drink 190
         // mythology 135
         //nonfinction 145
@@ -17,17 +17,31 @@ class GuessingTrivia {
         this.categories = [];
         this.clues = {};
 
+
+    let table = document.getElementById('table1');
+
+        alert(table.rows.length);                // number of rows
+        alert(table.rows[5].cells.length);       // number of cells in row 5
+        
+        alert(table.rows[5].cells[4].innerHTML); // contents of 6th cell in 3rd row
+        
+    
+    
+   
+
+
+        /*
         renderCategory(category) {      
             let column = document.createElement("div");
             column.classList.add("column");
             column.innerHTML = (
-               `<header>${category.title}</header>
+               `<header>${th.table}</header>
                <ul>
                </ul>`
             ).trim();
+            */
 
-
-        /* score board */
+        /*score board */
         this.score = 0;
         this.updateScore(0);
 
@@ -44,15 +58,21 @@ class GuessingTrivia {
                 })
             })
         }
-
+        this.fetchCategories();
     }
-    this.fetchCategories();
 
 
-    
 
 
-// buttons for each category
+
+
+
+
+// buttons for cells
+let btn = document.createElement
+
+
+
 
 // Form
 this.formElement = element.querySelector(".form");
@@ -63,11 +83,8 @@ this.resultTextElement = element.querySelector(".result_correct-answer-text");
 this.successTextElement = element.querySelector(".result_success");
 this.failTextElement = element.querySelector(".result_fail");
 
-}};
 
-
-
-
+/*
 // event listeners
 this.gameBoardElement.addEventListener("click", event => {
     if (event.target.dataset.clueId) {
@@ -83,7 +100,7 @@ this.gameBoardElement.addEventListener("click", event => {
  
  //Kick off the category fetch
  this.fetchCategories();
-
+*/
 
 //Fetch all of the data from the API
 fetchCategories() {      
@@ -95,14 +112,13 @@ fetchCategories() {
                });
          });
       })};
-      
 
 
 // submit button
 
 
 
-//reset button
+//reset  button
 
 
 
@@ -112,9 +128,22 @@ fetchCategories() {
 //clues
 
 
+// Add to DOM
+
+
+//score
+updateScore(change) {
+    this.score += change;
+    this.scoreCountElement.textContent = this.score;
+ }
 
 
 
-
+//buttons used
+//Clear out the input field
+this.inputElement.value = "";
+      
+//Update current clue
+this.currentClue = clue;
 
 

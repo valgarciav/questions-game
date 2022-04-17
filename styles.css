@@ -1,32 +1,14 @@
-/*
-.game-board {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background: linear-gradient(to top, #1d2675 0%,#2a3698 100%);
-    position: relative;
-    transition: .1s;
-    z-index: 1;
-    transform-origin: center left;
-    font-size: 12px;
-    height: 100vh;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-*/
-
 * {
     box-sizing:border-box;
     margin: 0;
     padding: 0;
 }
 
+
 html, body {
-    overflow:hidden;
+    overflow-x:scroll;
     height: 100%;
 }
-
 
 .top-heading {
     display: flex;
@@ -67,51 +49,12 @@ th{
 
 }
 
-td{
-
-
+th, td {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
 }
-
-/*.game-board{
-    width: 90rem;
-    height: 35rem;
-    background-color: lightgray;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-around;
-    border-radius: 5px;
-    border-style:solid;
-    margin-bottom: 1em;
-    background-color: #2a3698;
-    border: 3px solid;
-    padding: 10px;
-    text-align: center;
-    margin:10px;
-    position: relative;
-    transition: .1s;
-    z-index: 1;
-    
-
-}
-
-.game-board .column{
-    flex:1;
-    margin-left: (--gap);
-    margin-right: (--gap);
-
-}
-
-.game-board .column header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    height: 3em;
-    margin-bottom: 1em;
-    text-align: center;
-
-}*/
 .score {
     color: green;
     font-size: 1em;
@@ -120,44 +63,9 @@ td{
     align-items: center;
 
 }
-
-/*input, textarea, select {
-	display:block;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	margin:auto;
+.score-count{
+    color:white;
 }
-
-.hide {
-    display:none;
+table{
+    visibility: hidden;
 }
-
-.modal-wrapper {
-    background-color:rgba(0,0,0,.5);
-    display:none;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index:2;
-    height:100%; 
-} 
-
-.modal {
-    position:relative;
-    top:50%;
-    left:50%;
-    right:5%;
-    transform:translate(0%, -50%);
-    background-color:#ffffff;
-    z-index:2;
-    border-radius:5px;
-    background-color:#efefef;
-    overflow:auto;
-    max-height:calc(100% - 50px);
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-*/ 
