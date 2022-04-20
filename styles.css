@@ -5,9 +5,12 @@
 }
 
 
-html, body {
-    overflow-x:scroll;
+html {
+    overflow-x:auto;
+    overflow-y: auto;
     height: 100%;
+    margin: auto;
+
 }
 
 .top-heading {
@@ -25,7 +28,7 @@ body {
     font-size: 2vw;
     text-align:center;
     padding: 1em;
-    overflow-y: hidden;
+    /*overflow-y: hidden*/
 
 }
 table{
@@ -44,6 +47,19 @@ table{
 
 
 }
+button {
+    background-color: #2a3698;
+    border-style: bold;
+    display:inline-block;
+    height:100px;
+    width: 185px;
+    padding: 14px;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 5px 10px;
+
+}
+
 th{
     justify-content: space-evenly;
 
@@ -61,11 +77,17 @@ th, td {
     margin-left: 0.2em;
     display: flex;
     align-items: center;
+    font-weight: bold;
+    font-family :Verdana, Arial, Helvetica, sans-serif;
 
 }
 .score-count{
     color:white;
 }
-table{
-    visibility: hidden;
+/*table{
+    visibility:hidden;
+}*/
+
+.question-card {
+    
 }
