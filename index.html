@@ -26,47 +26,52 @@
             </tr>
           </th>
           <tr>
-            <td><button id="1" onclick="reply_cilck(this.id)">100</button></td>
-            <td><button id="2" onclick="reply_cilck(this.id)">100</button></td>
-            <td><button id="3" onclick="reply_cilck(this.id)">100</button></td>
-            <td><button id="4" onclick="reply_cilck(this.id)">100</button></td>
-            <td><button id="5" onclick="reply_cilck(this.id)">100</button></td>
+            <td><button id="1" data-category="255">100</button></td>
+            <td><button id="2" data-category="190">100</button></td>
+            <td><button id="3" data-category="135">100</button></td>
+            <td><button id="4" data-category="145">100</button></td>
+            <td><button id="5" data-category="130">100</button></td>
           </tr>
           <tr>
-            <td><button id="6" onclick="reply_cilck(this.id)">200</button></td>
-            <td><button id="7" onclick="reply_cilck(this.id)">200</button></td>
-            <td><button id="8" onclick="reply_cilck(this.id)">200</button></td>
-            <td><button id="9" onclick="reply_cilck(this.id)">200</button></td>
-            <td><button id="10" onclick="reply_cilck(this.id)">200</button></td>
+            <td><button id="6" data-category="255">200</button></td>
+            <td><button id="7" data-category="190">200</button></td>
+            <td><button id="8" data-category="135">200</button></td>
+            <td><button id="9" data-category="145">200</button></td>>
+            <td><button id="10" data-category="130">200</button></td>
           </tr>
           <tr>
-            <td><button id="11" onclick="reply_cilck(this.id)">300</button></td>
-            <td><button id="12" onclick="reply_cilck(this.id)">300</button></td>
-            <td><button id="13" onclick="reply_cilck(this.id)">300</button></td>
-            <td><button id="14" onclick="reply_cilck(this.id)">300</button></td>
-            <td><button id="15" onclick="reply_cilck(this.id)">300</button></td>
+            <td><button id="11" data-category="255">300</button></td
+            <td><button id="12" data-category="190">300</button></td>
+            <td><button id="13" data-category="135">300</button></td>
+            <td><button id="14" data-category="145">300</button></td>
+            <td><button id="15" data-category="130">300</button></td>
           </tr>
           <tr>
-            <td><button id="16" onclick="reply_cilck(this.id)">400</button></td>
-            <td><button id="17" onclick="reply_cilck(this.id)">400</button></td>
-            <td><button id="18" onclick="reply_cilck(this.id)">400</button></td>
-            <td><button id="19" onclick="reply_cilck(this.id)">400</button></td>
-            <td><button id="20" onclick="reply_cilck(this.id)">400</button></td>
+            <td><button id="16" data-category="255">400</button></td
+            <td><button id="17" data-category="190">400</button></td>
+            <td><button id="18" data-category="135">400</button></td>
+            <td><button id="19" data-category="145">400</button></td>
+            <td><button id="20" data-category="130">400</button></td>
           </tr>
           <tr>
-            <td><button id="21" onclick="reply_cilck(this.id)">500</button></td>
-            <td><button id="22" onclick="reply_cilck(this.id)">500</button></td>
-            <td><button id="23" onclick="reply_cilck(this.id)">500</button></td>
-            <td><button id="24" onclick="reply_cilck(this.id)">500</button></td>
-            <td><button id="25" onclick="reply_cilck(this.id)">500</button></td>
+            <td><button id="21" data-category="255">500</button></td
+            <td><button id="22" data-category="190">500</button></td>
+            <td><button id="23" data-category="135">500</button></td>
+            <td><button id="24" data-category="145">500</button></td>
+            <td><button id="25" data-category="130">500</button></td>
           </tr>
         </table>
       </div>
 
+      
       <!-- answers container -->
-      <div class="question-card">
+      <div class="question-card-modal">
+        <div id="question-container">
         <!--card modal-->
-        <div class="question-card-container">
+        <div class=card-modal-inner>
+        <h2 class="clue-text">
+
+        </h2>
           <!-- form goes here for user to add answer and submit-->
           <form autocomplete="off">
             <input name="users-answer" type="text" />
@@ -87,6 +92,6 @@
         </div>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
-  <footer></footer>
 </html>
