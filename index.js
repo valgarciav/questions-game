@@ -48,11 +48,53 @@ tableBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const category = e.target.dataset.category;
     const id = e.target.id;
-    const question = game.getQuestionsByCategory(category)[Number(id) - 1];
+    const question = game.getQuestionsByCategory(category)[Number(id) + 1];
     console.log(question);
   });
 });
 
-//Show the result container
-const modal = document.querySelector(".question-card-modal");
-/*modal.classList.add("showing-result");*/
+
+// Form pop up 
+
+this.boardElement.addEventListener("click", event => {
+    if (event.target.dataset.clueId) {
+       this.handleClueClick(event);
+    }
+ });
+ this.formElement.addEventListener("submit", event => {
+    this.handleFormSubmit(event);
+ });
+
+
+ function handleClueClick(event) {
+     console.log ("Button Clicked")
+ }
+ const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', handleClueClick);
+
+ handleClueClick(onclick) {
+    var clue = this.clues[event.target.dataset.clueId];
+
+   
+handleFormSubmit(onclick) {
+    onclick.preventDefault();
+    var isCorrect = this.cleanseAnswer(this.inputElement.value) === this.cleanseAnswer(this.currentClue.answer);
+      if (isCorrect) {
+         this.updateScore(this.currentClue.value);
+      }
+
+      //Show answer
+      this.revealAnswer(isCorrect);
+   }
+}\
+
+   onclick.target.classList.add("used");
+
+   //Clear out the input field
+   this.inputElement.value = "";
+
+
+   //Hide the result
+this.modalElement.classList.remove("showing-result");
+this.modalElement.classList.add("visible");
+      this.inputElement.focus();

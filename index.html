@@ -36,25 +36,25 @@
             <td><button id="6" data-category="255">200</button></td>
             <td><button id="7" data-category="190">200</button></td>
             <td><button id="8" data-category="135">200</button></td>
-            <td><button id="9" data-category="145">200</button></td>>
+            <td><button id="9" data-category="145">200</button></td>
             <td><button id="10" data-category="130">200</button></td>
           </tr>
           <tr>
-            <td><button id="11" data-category="255">300</button></td
+            <td><button id="11" data-category="255">300</button></td>
             <td><button id="12" data-category="190">300</button></td>
             <td><button id="13" data-category="135">300</button></td>
             <td><button id="14" data-category="145">300</button></td>
             <td><button id="15" data-category="130">300</button></td>
           </tr>
           <tr>
-            <td><button id="16" data-category="255">400</button></td
+            <td><button id="16" data-category="255">400</button></td>
             <td><button id="17" data-category="190">400</button></td>
             <td><button id="18" data-category="135">400</button></td>
             <td><button id="19" data-category="145">400</button></td>
             <td><button id="20" data-category="130">400</button></td>
           </tr>
           <tr>
-            <td><button id="21" data-category="255">500</button></td
+            <td><button id="21" data-category="255">500</button></td>
             <td><button id="22" data-category="190">500</button></td>
             <td><button id="23" data-category="135">500</button></td>
             <td><button id="24" data-category="145">500</button></td>
@@ -62,36 +62,28 @@
           </tr>
         </table>
       </div>
-
-      
+      <div class="board">
+        <!-- categories get injected here -->
+     </div>
+    
       <!-- answers container -->
-      <div class="question-card-modal">
-        <div id="question-container">
-        <!--card modal-->
+      <div class="card-modal">
         <div class=card-modal-inner>
-        <h2 class="clue-text">
-
-        </h2>
-          <!-- form goes here for user to add answer and submit-->
-          <form autocomplete="off">
-            <input name="users-answer" type="text" />
-            <button type="submit">Answer</button>
-          </form>
-
-          <!-- container with results -->
-          <div class="results">
-            <p class="result-correct">CORRECT</p>
-            <p class="result=wrong">WRONG</p>
-            <p class="result-correct-answer">
-              The right answer is
-              <span class="result-correct-answer-text">
-                <!-- right answer shows up below the answer user guessed --></span
-              >
-            </p>
-          </div>
+           <h2 class="clue-text"><!-- clue gets added here --></h2>
+           <form autocomplete="off">
+              <input name="user-answer" type="text" />
+              <button type="submit">Answer</button>
+           </form>
+           <div class="result">
+              <p class="result_success">CORRECT</p>
+              <p class="result_fail">INCORRECT</p>
+              <p class="result_correct-answer">
+                 The correct answer is <span class="result_correct-answer-text"><!--answer gets injected here--></span>
+              </p>
+           </div>
         </div>
-      </div>
-    </div>
+     </div>
+ </div>
     <script src="index.js"></script>
   </body>
 </html>
