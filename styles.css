@@ -85,8 +85,121 @@ th, td {
 }
 /*table{
     visibility:hidden;
-}*/
+}
 
-.question-card {
+.card-modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
 
+}
+
+
+.card-modal.visible {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.card-modal.showing-result .result {
+    display: block;
+}
+
+.modal-container form {
+    display: flex;
+ }
+
+ .modal-container form button[type="submit"] {
+    padding-left: 2em;
+    padding-right: 2em;
+    cursor: pointer;
+    font-family: inherit;
+    background: var(--yellow);
+    border: 0;
+    font-size: inherit;
+    border-top-right-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+ }
+
+
+
+
+.modal-container .clue-text {
+    margin-bottom: 2em;
+ }*/
+
+ .modal-container {
+     border:0;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     padding: 10px 25px;
+    position:fixed;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+
+}
+
+.modal {
+    background-color: white;
+    width: 800px;
+    height: 600px;
+    max-width: 100%;
+    padding: 50px 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal h2 {
+    margin: 0;
+}
+
+.modal p {
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+.modal-container form {
+    display: flex;
+ }
+
+ .modal-container .clue-text {
+    margin-bottom: 2em;
+ }
+
+ .modal-container form button[type="submit"] {
+    padding-left: 2em;
+    padding-right: 2em;
+    cursor: pointer;
+    font-family: inherit;
+    background: green;
+    border: 0;
+    font-size: inherit;
+    border-top-right-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+ }
+
+ .result,
+ .modal-container.showing-result form {
+    display:none;
+ }
+
+
+ .modal-container .visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container .showing-result .result {
+    display: block;
 }
