@@ -64,26 +64,28 @@
       </div>
       <div class="board">
         <!-- categories get injected here -->
-     </div>
-      <!-- answers container -->
+    </div>
+    <!-- answers container -->
+    <div id="modal" class="card-modal" style="display: none;">
+        <button type="button" class="open-modal" data-open="modal1">...</button>
+        <div class=card-modal-inner>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="clue-text">
+                <!-- clue gets added here -->
+            </h2>
+            <form autocomplete="off">
+                <input id="answerInput" name="user-answer" type="text" />
+                <button id="answerButton" type="button">Answer</button>
+            </form>
+            <div class="result">
+                <p class="result_correct-answer">
+                    The correct answer is <span id="result" class="result_correct-answer-text">
+                        <!--answer gets injected here-->
+                    </span>. Your answer was <span id="isCorrect"></span>
     
-      <div class="modal-container" id="modal_container" >
-        <div class= "modal">
-           <h2 class="clue-text"><!-- clue gets added here --></h2>
-           <form autocomplete="off">
-              <input name="user-answer" type="text" />
-              <button type="submit">Answer</button>
-           </form>
-           <div class="result">
-              <p class="result_success">CORRECT</p>
-              <p class="result_fail">INCORRECT</p>
-              <p class="result_correct-answer">
-                 The correct answer is <span class="result_correct-answer-text"><!--answer gets injected here--></span>
-              </p>
-           </div>
+                </p>
+            </div>
         </div>
-     </div>
- </div>
     <script src="index.js"></script>
   </body>
 </html>

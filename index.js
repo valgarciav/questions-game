@@ -4,21 +4,73 @@ class GuessingTrivia {
     // Default Categories pulled from https://jservice.io/search:
     // 3 letter words 255, movies 130,food and drink 190, mythology 135, nonfinction 145
 
-    /*fetch this from api */
+    /*fetch this data from API */
     this.categories = { 255: [], 190: [], 135: [], 145: [], 130: [] };
 
     // Form elements
     this.formElement = document.querySelector(".form");
     this.gameBoardElement = document.querySelector(".table");
     this.scoreCountElement = document.querySelector(".score-count");
-    this.resultElement = document.querySelector(".results");
+
+
+
+    const tr = document.querySelector("#tr")
+    const trChildrens = Array.from(tr.children)
+    const modal = document.querySelector("#modal")
+    const answerInput = document.querySelector("#answerInput")
+    const answerButton = document.querySelector("#answerButton")
+    const result = document.querySelector("#result")
+    const isCorrect = document.querySelector("#isCorrect")
+    
+    /*this.resultElement = document.querySelector(".results");
     this.resultTextElement = document.querySelector(
       ".result_correct-answer-text"
     );
     this.successTextElement = document.querySelector(".result_success");
     this.failTextElement = document.querySelector(".result_fail");
     this.answer = document.querySelector("input[name=user-answer]");
+  }*/
+  }}
+
+
+
+  updateScore(change);
+      //Add clue to DB
+  this.score = 0;
+  this.updateScore(0);
+  this.score =+ change;
+      this.scoreCountElement.textContent = this.score;
+      this.updateScore(this.currentClue.value)
+
+
+  this.clues[clueId] = {
+    question: clue.question,
+    answer: clue.answer,
+    value: (index + 1) * 100
+    };
+    
+
+
+  
+  
+
+
+  function showScore() {
+      var winningScoreHTML = "<h1>CORRECT</h1>"
   }
+
+isCorrect = this.cleanseAnswer(this.inputElement.value) === this.cleanseAnswer(this.currentClue.answer);
+  if (isCorrect) {
+
+      this.updateScore(this.currentClue.value);
+    }
+
+    //Show answer
+    this.revealAnswer(isCorrect);
+
+
+
+
 
 
   async fetchDataByCategory(id) {
@@ -39,8 +91,8 @@ class GuessingTrivia {
     this.categoryIds.forEach((category) => this.fetchDataByCategory(category));
     // this.fetchCategories();
   }
-}
 
+}
 const game = new GuessingTrivia(document.querySelector(".app"), {});
 game.initGame();
 
@@ -60,91 +112,53 @@ tableBtns.forEach((btn) => {
  const clueId = categoryIndex + "-" + index;
  category.clues.push(clueId);
 
- //Add clue to DB
-this.clues[clueId] = {
-question: clue.question,
-answer: clue.answer,
-value: (index + 1) * 100
-};
-         
+
+
+
 const tr = document.querySelector("#tr")
 const trChildrens = Array.from(tr.children)
+const modal = document.querySelector("#modal")
+const answerInput = document.querySelector("#answerInput")
+const answerButton = document.querySelector("#answerButton")
+const result = document.querySelector("#result")
+const isCorrect = document.querySelector("#isCorrect")
 
-trChildrens.forEach(child => {
+let modalToggle = false 
+let answer = "" // Answer is empty as default.
+
+// applying the code for each entry of the array
+trChildrens.forEach(child => { 
   child.addEventListener("click", () => {
-    console.log("Hey, I've been clicked!.")
+    console.log("Button has been clicked,open up the modal")
+    modalToggle = !modalToggle  
+    if(modalToggle) { // display the modal if its true
+      modal.style.display = "block" // hiding the modal if its false
+    }
   })
 })
 
 
-const modal_container = document.getElementById('modal-container');
-trChildrens.addEventListener('click', () => {
-    modal_container.classList.show('modal-container');
-});
+answerButton.addEventListener("click", answerCheck) // check answer when clicking the Answer button.
 
+function answerCheck() {
+ // adding the current value of the input as the answer when user types it in
+ answer = answerInput.value 
+ answerButton.disabled = true  
+ answerButton.removeEventListener("click", answerCheck) //so  user cannot cheat 
 
-
-
-
-
-/*
-// Form pop up 
-
-function handleFormSubmit(onclick) {
-    document.getElementById("form").tableBtns 
-    onclick.preventDefault();
-    var isCorrect = this.cleanseAnswer(this.inputElement.value) === this.cleanseAnswer(this.currentClue.answer);
-      if (isCorrect) {
-         this.updateScore(this.currentClue.value);
-      }
-    }
-
-    function handleClueClick(onclick) {
-        var clue = this.clues[onclick.target.dataset.clueId];
-  
-        
-        onclick.target.classList.add("used");
-        this.inputElement.value = "";
-        this.currentClue = clue;
-        //Update the text
-        this.clueTextElement.textContent = this.currentClue.question;
-        this.resultTextElement.textContent = this.currentClue.answer;
-  
-        //Hide the result
-        this.modalElement.classList.remove("showing-result");
-        
-        //Show the modal
-        this.modalElement.classList.add("visible");
-        this.answerElement.focus();
-    
-  
-     //Handle an answer from user
-     handleFormSubmit(onclick) {
-        onclick.preventDefault();
-
-        //Handle an answer from user
-   handleFormSubmit(event) {
-    event.preventDefault();
-    
-    var isCorrect = this.cleanseAnswer(this.inputElement.value) === this.cleanseAnswer(this.currentClue.answer);
-    if (isCorrect) {
-
-        this.updateScore(this.currentClue.value);
-      }
-
-      //Show answer
-      this.revealAnswer(isCorrect);
-   }
-   
-     }
-    }
-
-
-//SCORE
-updateScore(change) {
-    this.score = [0];
-    this.score += change;
-    this.scoreCountElement.textContent = this.score;
+ // Calling API to get the correct answer
+ if (answer != "The result of the API") {
+   console.log("The answer is not correct!")
+   isCorrect.textContent = "incorrect"
+ } else {
+   console.log("The answer is correct!")
+   isCorrect.textContent = "correct"
  }
- */
+ result.textContent = "API result."
+
+
+}
+
+   
+
  
