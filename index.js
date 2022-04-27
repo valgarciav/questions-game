@@ -12,30 +12,88 @@ class GuessingTrivia {
     this.gameBoardElement = document.querySelector(".table");
     this.scoreCountElement = document.querySelector(".score-count");
 
+    const tr = document.querySelector("#tr");
+    const trChildrens = Array.from(tr.children);
+    const modal = document.querySelector("#modal");
+    const answerInput = document.querySelector("#answerInput");
+    const answerButton = document.querySelector("#answerButton");
+    const result = document.querySelector("#result");
+    const isCorrect = document.querySelector("#isCorrect");
+  
 
+  function getQuestionsByCategory(id) {
+    const data = this.categories[id];
+    return data.map((singleObject) => singleObject.question);
+  
+  initGame() {
+    this.categoryIds.forEach((category) => this.fetchDataByCategory(category));
+    // this.fetchCategories();
+  }
+}
+}
+}
 
-    const tr = document.querySelector("#tr")
-    const trChildrens = Array.from(tr.children)
-    const modal = document.querySelector("#modal")
-    const answerInput = document.querySelector("#answerInput")
-    const answerButton = document.querySelector("#answerButton")
-    const result = document.querySelector("#result")
-    const isCorrect = document.querySelector("#isCorrect")
-    
-    /*this.resultElement = document.querySelector(".results");
-    this.resultTextElement = document.querySelector(
-      ".result_correct-answer-text"
-    );
-    this.successTextElement = document.querySelector(".result_success");
-    this.failTextElement = document.querySelector(".result_fail");
-    this.answer = document.querySelector("input[name=user-answer]");
-  }*/
-  }}
+const game = new GuessingTrivia(document.querySelector(".app"), {});
+game.initGame();
 
+const table = document.querySelector("table");
+const tableBtns = table.querySelectorAll("button");
+console.log(tableBtns);
+tableBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const category = e.target.dataset.category;
+    const question = game.getQuestionsByCategory(category)[Number(id) + 1];
+    console.log(question);
+  });
+});
 
+// ID for this clue
+const clueId = categoryIndex + "-" + index;
+category.clues.push(clueId);
 
-  updateScore(change);
-      //Add clue to DB
+let modalToggle = false;
+let answer = ""; // Answer is empty as default.
+
+// applying the code for each entry of the array
+trChildrens.forEach((child) => {
+  child.addEventListener("click", () => {
+    console.log("Button has been clicked,open up the modal");
+    modalToggle = !modalToggle;
+    if (modalToggle) {
+      // display the modal if its true
+      modal.style.display = "block";
+    }
+  });
+});
+
+answerButton.addEventListener("click", answerCheck); // check answer when clicking the Answer button
+
+function answerCheck() {
+  // adding the current value of the input as the answer when user types it in
+  answer = answerInput.value;
+  answerButton.disabled = true;
+  answerButton.removeEventListener("click", answerCheck); //so  user cannot cheat
+
+  // Calling API to get the correct answer
+  async function fetchDataByCategory(id) {
+    const response = await fetch(`https://jservice.io/api/category?id=${id}`);
+    const data = await response.json();
+    const answerCheck = data.answerCheck;
+    this.categories[id] = [clues[0], clues[1], clues[2], clues[3], clues[4]];
+    console.log(this.categories);
+  }
+  if (answer != "The result of the API") {
+    console.log("answer is incorrect");
+    isCorrect.textContent = "incorrect";
+  } else {
+    console.log("answer is correct!");
+    isCorrect.textContent = "correct";
+  }
+  result.textContent = "API result.";
+}
+
+   // Score up update from 0 
+   updateScore(change);
   this.score = 0;
   this.updateScore(0);
   this.score =+ change;
@@ -48,117 +106,3 @@ class GuessingTrivia {
     answer: clue.answer,
     value: (index + 1) * 100
     };
-    
-
-
-  
-  
-
-
-  function showScore() {
-      var winningScoreHTML = "<h1>CORRECT</h1>"
-  }
-
-isCorrect = this.cleanseAnswer(this.inputElement.value) === this.cleanseAnswer(this.currentClue.answer);
-  if (isCorrect) {
-
-      this.updateScore(this.currentClue.value);
-    }
-
-    //Show answer
-    this.revealAnswer(isCorrect);
-
-
-
-
-
-
-  async fetchDataByCategory(id) {
-    const response = await fetch(`https://jservice.io/api/category?id=${id}`);
-    const data = await response.json();
-    const clues = data.clues;
-    this.categories[id] = [clues[0], clues[1], clues[2], clues[3], clues[4]];
-    console.log(this.categories);
-  }
-
-  getQuestionsByCategory(id) {
-    const data = this.categories[id];
-    return data.map((singleObject) => singleObject.question);
-  }
-
-  //score update on DOM
-  initGame() {
-    this.categoryIds.forEach((category) => this.fetchDataByCategory(category));
-    // this.fetchCategories();
-  }
-
-}
-const game = new GuessingTrivia(document.querySelector(".app"), {});
-game.initGame();
-
-const table = document.querySelector("table");
-const tableBtns = table.querySelectorAll("button");
-console.log(tableBtns);
-tableBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    const category = e.target.dataset.category;
-    const id = e.target.id;
-    const question = game.getQuestionsByCategory(category)[Number(id) + 1];
-    console.log(question);
-  });
-});
-
- //Create unique ID for this clue
- const clueId = categoryIndex + "-" + index;
- category.clues.push(clueId);
-
-
-
-
-const tr = document.querySelector("#tr")
-const trChildrens = Array.from(tr.children)
-const modal = document.querySelector("#modal")
-const answerInput = document.querySelector("#answerInput")
-const answerButton = document.querySelector("#answerButton")
-const result = document.querySelector("#result")
-const isCorrect = document.querySelector("#isCorrect")
-
-let modalToggle = false 
-let answer = "" // Answer is empty as default.
-
-// applying the code for each entry of the array
-trChildrens.forEach(child => { 
-  child.addEventListener("click", () => {
-    console.log("Button has been clicked,open up the modal")
-    modalToggle = !modalToggle  
-    if(modalToggle) { // display the modal if its true
-      modal.style.display = "block" // hiding the modal if its false
-    }
-  })
-})
-
-
-answerButton.addEventListener("click", answerCheck) // check answer when clicking the Answer button.
-
-function answerCheck() {
- // adding the current value of the input as the answer when user types it in
- answer = answerInput.value 
- answerButton.disabled = true  
- answerButton.removeEventListener("click", answerCheck) //so  user cannot cheat 
-
- // Calling API to get the correct answer
- if (answer != "The result of the API") {
-   console.log("The answer is not correct!")
-   isCorrect.textContent = "incorrect"
- } else {
-   console.log("The answer is correct!")
-   isCorrect.textContent = "correct"
- }
- result.textContent = "API result."
-
-
-}
-
-   
-
- 
